@@ -1,1 +1,0 @@
-# kawaramachi-omakase-wagyu-sushi
