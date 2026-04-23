@@ -1046,7 +1046,7 @@ Open 11:00 — 23:00
     // ===== 流入元URLパスを取得 =====
     var source = window.location.pathname;
 
-    var params = { name, email, phone, guests, time, date, message, source_path: source };
+    var params = { name, email, phone, guests, time, date, message, source_path: source, location: '先斗町店', location_key: 'pontocho', address_jp: '〒604-8016 京都府京都市中京区下樵木町191-6 1F', address_en: 'Kyoto, Nakagyo-ku, Shimokiriki-cho 191-6, 1F' };
 
     try {
       await emailjs.send('service_41qov79', 'template_uk1m5wn', params);
