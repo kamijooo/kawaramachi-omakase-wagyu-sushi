@@ -10,7 +10,7 @@
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WFNM84T3');</script>
+})(window,document,'script','dataLayer','GTM-TG6DJRLV');</script>
 <!-- End Google Tag Manager -->
 
 <!-- Google tag (gtag.js) -->
@@ -95,13 +95,60 @@ body { padding-bottom: 72px; }
 .course-detail-panel.open { max-height:600px; }
 .chevron-icon { transition:transform 0.3s; }
 .chevron-icon.open { transform:rotate(180deg); }
+
+/* Booking count banner */
+.booking-pulse {
+  display:inline-block;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#ef4444;
+  margin-right:8px;
+  animation: pulseRed 1.8s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+}
+@keyframes pulseRed {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+/* Confirmation dialog styles */
+.confirm-checkbox {
+  appearance:none;
+  -webkit-appearance:none;
+  width:18px;
+  height:18px;
+  border:1.5px solid rgba(201,169,110,0.5);
+  border-radius:4px;
+  background:#1a1a1a;
+  cursor:pointer;
+  position:relative;
+  flex-shrink:0;
+  margin-top:2px;
+}
+.confirm-checkbox:checked {
+  background:#c9a96e;
+  border-color:#c9a96e;
+}
+.confirm-checkbox:checked::after {
+  content:'';
+  position:absolute;
+  left:5px;
+  top:1px;
+  width:5px;
+  height:10px;
+  border:solid #090909;
+  border-width:0 2px 2px 0;
+  transform:rotate(45deg);
+}
 </style>
 </head>
 
 <body class="bg-ginza-black text-ginza-ivory font-epilogue overflow-x-hidden">
 
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WFNM84T3"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TG6DJRLV"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
@@ -193,6 +240,14 @@ Ultra-rare lean Wagyu. Halal certified.<br/>A dining experience crafted for the 
     </svg>
     ACCESS &amp; MAP
   </a>
+
+  <!-- BOOKING COUNT BANNER -->
+  <div class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-ginza-gold/10 via-ginza-gold/20 to-ginza-gold/10 border border-ginza-gold/40 rounded-full px-4 py-2.5 mt-1">
+    <span class="booking-pulse"></span>
+    <span class="text-[11px] font-josefin font-semibold tracking-[0.1em] text-ginza-gold uppercase">
+      <span class="text-ginza-ivory">52 bookings</span> in the last 24 hours
+    </span>
+  </div>
 
   <div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
     <svg class="w-4 h-4 text-ginza-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
@@ -499,9 +554,17 @@ window.addEventListener('load', function() {
 <div class="max-w-[390px] mx-auto">
 <p class="section-label mb-4">Reserve</p>
 <h3 class="font-cormorant italic text-3xl mb-2">Begin Your Experience</h3>
-<p class="text-sm font-light text-ginza-ivory/50 mb-8 max-w-xs mx-auto">
+<p class="text-sm font-light text-ginza-ivory/50 mb-6 max-w-xs mx-auto">
 Reservations recommended 2 weeks in advance.<br/>Walk-ins welcome subject to availability.
 </p>
+
+  <!-- BOOKING COUNT BANNER (reservation section) -->
+  <div class="inline-flex items-center justify-center gap-2 bg-ginza-gold/10 border border-ginza-gold/40 rounded-full px-4 py-2 mb-8">
+    <span class="booking-pulse"></span>
+    <span class="text-[11px] font-josefin font-semibold tracking-[0.1em] text-ginza-gold uppercase">
+      <span class="text-ginza-ivory">52 bookings</span> in the last 24 hours
+    </span>
+  </div>
 
   <div
     onclick="openReserveModal('calendar_card')"
@@ -728,21 +791,36 @@ Open 11:00 — 23:00
   <div style="min-height:100%;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box;">
     <div style="background:#111;border:1px solid rgba(201,169,110,0.3);border-radius:16px;width:100%;max-width:480px;padding:32px 24px;position:relative;box-sizing:border-box;">
       <button onclick="closeReserveModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;color:rgba(240,237,228,0.5);font-size:24px;cursor:pointer;line-height:1;">&#x00D7;</button>
-      <p style="font-size:10px;letter-spacing:0.3em;color:rgba(201,169,110,0.6);text-transform:uppercase;margin:0 0 8px;">Reservation Request</p>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:#f0ede4;margin:0 0 4px;">予約リクエスト</h3>
-      <p style="font-size:12px;color:rgba(240,237,228,0.5);margin:0 0 24px;">送信後、確認メールをお送りします。<br/>We will send you a confirmation email.</p>
+      <p style="font-size:10px;letter-spacing:0.3em;color:rgba(201,169,110,0.6);text-transform:uppercase;margin:0 0 8px;">Reservation</p>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;color:#f0ede4;margin:0 0 4px;line-height:1.2;">Reservation Request</h3>
+      <p style="font-size:12px;color:rgba(201,169,110,0.7);margin:0 0 4px;letter-spacing:0.05em;">予約リクエスト</p>
+      <p style="font-size:12px;color:rgba(240,237,228,0.5);margin:0 0 24px;">We will send you a confirmation email.<br/>送信後、確認メールをお送りします。</p>
 
       <div id="reserveForm">
+        <!-- Honeypot field: hidden from humans, bots will fill it -->
+        <div style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+          <label for="r_website">Website (do not fill)</label>
+          <input id="r_website" name="website" type="text" tabindex="-1" autocomplete="off"/>
+        </div>
         <div style="margin-bottom:16px;"><label style="display:block;font-size:10px;letter-spacing:0.15em;color:rgba(201,169,110,0.7);text-transform:uppercase;margin-bottom:6px;">お名前 / Name *</label><input id="r_name" type="text" placeholder="Yamada Taro" autocomplete="name" style="width:100%;background:#1a1a1a;border:1px solid rgba(201,169,110,0.25);border-radius:8px;padding:10px 14px;color:#f0ede4;font-size:16px;box-sizing:border-box;-webkit-appearance:none;"/></div>
         <div style="margin-bottom:16px;"><label style="display:block;font-size:10px;letter-spacing:0.15em;color:rgba(201,169,110,0.7);text-transform:uppercase;margin-bottom:6px;">メールアドレス / Email *</label><input id="r_email" type="email" placeholder="example@email.com" autocomplete="email" style="width:100%;background:#1a1a1a;border:1px solid rgba(201,169,110,0.25);border-radius:8px;padding:10px 14px;color:#f0ede4;font-size:16px;box-sizing:border-box;-webkit-appearance:none;"/></div>
-        <div style="margin-bottom:16px;"><label style="display:block;font-size:10px;letter-spacing:0.15em;color:rgba(201,169,110,0.7);text-transform:uppercase;margin-bottom:6px;">電話番号 / Phone</label><input id="r_phone" type="tel" placeholder="+81 90-0000-0000" autocomplete="tel" style="width:100%;background:#1a1a1a;border:1px solid rgba(201,169,110,0.25);border-radius:8px;padding:10px 14px;color:#f0ede4;font-size:16px;box-sizing:border-box;-webkit-appearance:none;"/></div>
+        <div style="margin-bottom:16px;"><label style="display:block;font-size:10px;letter-spacing:0.15em;color:rgba(201,169,110,0.7);text-transform:uppercase;margin-bottom:6px;">電話番号 / Phone *</label><input id="r_phone" type="tel" placeholder="+81 90-0000-0000" autocomplete="tel" style="width:100%;background:#1a1a1a;border:1px solid rgba(201,169,110,0.25);border-radius:8px;padding:10px 14px;color:#f0ede4;font-size:16px;box-sizing:border-box;-webkit-appearance:none;"/></div>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
           <div><label style="display:block;font-size:10px;letter-spacing:0.15em;color:rgba(201,169,110,0.7);text-transform:uppercase;margin-bottom:6px;">人数 / Guests *</label><select id="r_guests" style="width:100%;background:#1a1a1a;border:1px solid rgba(201,169,110,0.25);border-radius:8px;padding:10px 14px;color:#f0ede4;font-size:16px;box-sizing:border-box;-webkit-appearance:none;"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select></div>
-          <div><label style="display:block;font-size:10px;letter-spacing:0.15em;color:rgba(201,169,110,0.7);text-transform:uppercase;margin-bottom:6px;">希望時間 / Time *</label><select id="r_time" style="width:100%;background:#1a1a1a;border:1px solid rgba(201,169,110,0.25);border-radius:8px;padding:10px 14px;color:#f0ede4;font-size:16px;box-sizing:border-box;-webkit-appearance:none;"><option value="">-</option><option>11:00</option><option>12:00</option><option>13:00</option><option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option></select></div>
+          <div><label style="display:block;font-size:10px;letter-spacing:0.15em;color:rgba(201,169,110,0.7);text-transform:uppercase;margin-bottom:6px;">希望時間 / Time *</label><select id="r_time" style="width:100%;background:#1a1a1a;border:1px solid rgba(201,169,110,0.25);border-radius:8px;padding:10px 14px;color:#f0ede4;font-size:16px;box-sizing:border-box;-webkit-appearance:none;"><option value="">-</option><option>12:00</option><option>14:00</option><option>17:00</option><option>20:00</option></select></div>
         </div>
 
-        <div style="margin-bottom:16px;"><label style="display:block;font-size:10px;letter-spacing:0.15em;color:rgba(201,169,110,0.7);text-transform:uppercase;margin-bottom:6px;">希望日 / Preferred Date *</label><input id="r_date" type="date" style="width:100%;background:#1a1a1a;border:1px solid rgba(201,169,110,0.25);border-radius:8px;padding:10px 14px;color:#f0ede4;font-size:16px;box-sizing:border-box;-webkit-appearance:none;"/></div>
+        <div style="margin-bottom:16px;">
+          <label style="display:block;font-size:10px;letter-spacing:0.15em;color:rgba(201,169,110,0.7);text-transform:uppercase;margin-bottom:6px;">希望日 / Preferred Date *</label>
+          <div style="position:relative;" onclick="document.getElementById('r_date').showPicker ? document.getElementById('r_date').showPicker() : document.getElementById('r_date').focus();">
+            <input id="r_date" type="date" style="width:100%;background:#1a1a1a;border:1px solid rgba(201,169,110,0.25);border-radius:8px;padding:12px 40px 12px 14px;color:#f0ede4;font-size:16px;box-sizing:border-box;-webkit-appearance:none;cursor:pointer;" onclick="event.stopPropagation(); this.showPicker && this.showPicker();"/>
+            <svg style="position:absolute;right:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:#c9a96e;pointer-events:none;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/>
+            </svg>
+          </div>
+          <p style="font-size:10px;color:rgba(240,237,228,0.4);margin:4px 0 0;">📅 タップしてカレンダーから日付を選択 / Tap to pick from calendar</p>
+        </div>
         <div style="margin-bottom:20px;"><label style="display:block;font-size:10px;letter-spacing:0.15em;color:rgba(201,169,110,0.7);text-transform:uppercase;margin-bottom:6px;">ご要望 / Special Requests</label><textarea id="r_message" rows="3" placeholder="Allergies, dietary requirements, special occasions..." style="width:100%;background:#1a1a1a;border:1px solid rgba(201,169,110,0.25);border-radius:8px;padding:10px 14px;color:#f0ede4;font-size:16px;box-sizing:border-box;resize:vertical;-webkit-appearance:none;"></textarea></div>
 
         <div style="background:rgba(201,169,110,0.05);border:1px solid rgba(201,169,110,0.2);border-radius:8px;padding:12px 14px;margin-bottom:20px;font-size:11px;color:rgba(240,237,228,0.5);line-height:1.7;">
@@ -750,11 +828,13 @@ Open 11:00 — 23:00
           <p style="margin:0 0 4px;">・24時間前以内：¥5,000 / person &nbsp;|&nbsp; Within 24 hours: ¥5,000 / person</p>
           <p style="margin:0 0 10px;">・48時間前以内：¥2,500 / person &nbsp;|&nbsp; Within 48 hours: ¥2,500 / person</p>
           <hr style="border:none;border-top:1px solid rgba(201,169,110,0.15);margin:8px 0;"/>
-          <p style="margin:0;color:rgba(240,237,228,0.4);">※ このフォームでの送信は予約確定ではありません。godaimeinfo@gmail.com からの予約確定メールをお待ちください。<br/><br/>* This form does not confirm your reservation. Please wait for a confirmation email from godaimeinfo@gmail.com.</p>
+          <p style="margin:0 0 10px;color:rgba(240,237,228,0.4);">※ このフォームでの送信は予約確定ではありません。godaimeinfo@gmail.com からの予約確定メールをお待ちください。<br/><br/>* This form does not confirm your reservation. Please wait for a confirmation email from godaimeinfo@gmail.com.</p>
+          <hr style="border:none;border-top:1px solid rgba(201,169,110,0.15);margin:8px 0;"/>
+          <p style="margin:0;color:rgba(201,169,110,0.75);font-weight:600;">※ 当日予約の場合、お席の確認が遅れることがございますので、<a href="tel:07035278165" style="color:#c9a96e;text-decoration:underline;">070-3527-8165</a> までお電話ください。<br/><br/><span style="color:rgba(240,237,228,0.5);font-weight:400;">* For same-day reservations, seat confirmation may be delayed. Please call <a href="tel:07035278165" style="color:#c9a96e;text-decoration:underline;">070-3527-8165</a>.</span></p>
         </div>
 
         <p id="r_error" style="color:#e57373;font-size:12px;margin-bottom:12px;display:none;"></p>
-        <button onclick="submitReservation()" id="r_submit" style="width:100%;background:#c9a96e;color:#090909;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;padding:14px;border:none;border-radius:8px;cursor:pointer;">SEND REQUEST / 送信する</button>
+        <button onclick="openConfirmDialog()" id="r_submit" style="width:100%;background:#c9a96e;color:#090909;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;padding:14px;border:none;border-radius:8px;cursor:pointer;">SEND REQUEST / 送信する</button>
       </div>
 
       <div id="reserveSuccess" style="display:none;text-align:center;padding:20px 0;">
@@ -763,6 +843,71 @@ Open 11:00 — 23:00
         <p style="font-size:14px;color:rgba(240,237,228,0.7);margin-bottom:8px;">リクエストを受け付けました。<br/>godaimeinfo@gmail.com からの確定メールをお待ちください。</p>
         <p style="font-size:13px;color:rgba(240,237,228,0.5);">Your request has been received.<br/>Please wait for a confirmation from godaimeinfo@gmail.com.</p>
         <button onclick="closeReserveModal()" style="margin-top:24px;background:none;border:1px solid rgba(201,169,110,0.4);color:#c9a96e;font-family:'Josefin Sans',sans-serif;font-size:11px;letter-spacing:0.15em;padding:10px 24px;border-radius:8px;cursor:pointer;">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRMATION DIALOG (overlay on top of reservation modal) -->
+<div id="confirmDialog" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.75);overflow-y:auto;-webkit-overflow-scrolling:touch;">
+  <div style="min-height:100%;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box;">
+    <div style="background:#0f0f0f;border:1.5px solid rgba(201,169,110,0.5);border-radius:16px;width:100%;max-width:440px;padding:28px 24px;position:relative;box-sizing:border-box;box-shadow:0 0 40px rgba(201,169,110,0.15);">
+      <button onclick="closeConfirmDialog()" style="position:absolute;top:14px;right:14px;background:none;border:none;color:rgba(240,237,228,0.5);font-size:22px;cursor:pointer;line-height:1;">&#x00D7;</button>
+
+      <p style="font-size:10px;letter-spacing:0.3em;color:rgba(201,169,110,0.6);text-transform:uppercase;margin:0 0 8px;">Final Check</p>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#c9a96e;margin:0 0 4px;line-height:1.2;">Please Confirm Your Reservation</h3>
+      <p style="font-size:12px;color:rgba(201,169,110,0.7);margin:0 0 16px;letter-spacing:0.05em;">ご予約内容のご確認</p>
+
+      <!-- Importance notice -->
+      <div style="background:rgba(201,169,110,0.08);border-left:3px solid #c9a96e;padding:10px 14px;margin-bottom:18px;border-radius:0 6px 6px 0;">
+        <p style="font-size:12px;color:rgba(240,237,228,0.8);margin:0 0 4px;line-height:1.6;">
+          食材とお席の準備がございますので、内容に誤りがないかご確認ください。
+        </p>
+        <p style="font-size:11px;color:rgba(240,237,228,0.5);margin:0;line-height:1.6;">
+          We prepare ingredients and seating based on your reservation. Please confirm details are correct.
+        </p>
+      </div>
+
+      <!-- Reservation summary -->
+      <div style="background:#1a1a1a;border:1px solid rgba(201,169,110,0.25);border-radius:12px;padding:16px 18px;margin-bottom:18px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(201,169,110,0.1);">
+          <span style="font-size:10px;letter-spacing:0.15em;color:rgba(201,169,110,0.6);text-transform:uppercase;">Date / 日付</span>
+          <span id="confirm_date" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:#c9a96e;font-weight:600;">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(201,169,110,0.1);">
+          <span style="font-size:10px;letter-spacing:0.15em;color:rgba(201,169,110,0.6);text-transform:uppercase;">Time / 時間</span>
+          <span id="confirm_time" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:#c9a96e;font-weight:600;">—</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;">
+          <span style="font-size:10px;letter-spacing:0.15em;color:rgba(201,169,110,0.6);text-transform:uppercase;">Guests / 人数</span>
+          <span id="confirm_guests" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:#c9a96e;font-weight:600;">—</span>
+        </div>
+      </div>
+
+      <!-- Checkboxes -->
+      <div style="margin-bottom:20px;">
+        <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;padding:10px 0;">
+          <input id="confirm_check_details" type="checkbox" class="confirm-checkbox"/>
+          <span style="font-size:12px;color:rgba(240,237,228,0.75);line-height:1.5;">
+            <strong style="color:rgba(201,169,110,0.9);font-weight:600;">日付・時間・人数を確認しました</strong><br/>
+            <span style="color:rgba(240,237,228,0.55);font-size:11px;">I have confirmed the date, time and number of guests are correct.</span>
+          </span>
+        </label>
+        <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;padding:10px 0;border-top:1px solid rgba(201,169,110,0.1);">
+          <input id="confirm_check_policy" type="checkbox" class="confirm-checkbox"/>
+          <span style="font-size:12px;color:rgba(240,237,228,0.75);line-height:1.5;">
+            <strong style="color:rgba(201,169,110,0.9);font-weight:600;">キャンセルポリシーを確認しました</strong><br/>
+            <span style="color:rgba(240,237,228,0.55);font-size:11px;">I have read and agree to the cancellation policy.</span>
+          </span>
+        </label>
+      </div>
+
+      <p id="confirm_error" style="color:#e57373;font-size:11px;margin:0 0 12px;display:none;">両方にチェックを入れてください / Please check both boxes.</p>
+
+      <!-- Buttons -->
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:10px;">
+        <button onclick="closeConfirmDialog()" style="background:transparent;border:1px solid rgba(201,169,110,0.4);color:rgba(201,169,110,0.9);font-family:'Josefin Sans',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;padding:13px 10px;border-radius:8px;cursor:pointer;">修正する<br/><span style="font-size:9px;opacity:0.7;">EDIT</span></button>
+        <button onclick="confirmAndSubmit()" id="confirm_submit_btn" style="background:#c9a96e;color:#090909;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;padding:13px 10px;border:none;border-radius:8px;cursor:pointer;">この内容で送信<br/><span style="font-size:9px;opacity:0.75;">CONFIRM &amp; SEND</span></button>
       </div>
     </div>
   </div>
@@ -779,6 +924,15 @@ Open 11:00 — 23:00
   function openReserveModal(label) {
     document.getElementById('reserveModal').style.display = 'block';
     document.body.style.overflow = 'hidden';
+    window._reserveModalOpenedAt = Date.now();  // タイマー用: モーダル表示時刻を記録
+
+    // 日付入力の最小値を今日に設定（過去日付選択を防止）
+    var today = new Date();
+    var minDate = today.getFullYear() + '-' +
+                  String(today.getMonth()+1).padStart(2,'0') + '-' +
+                  String(today.getDate()).padStart(2,'0');
+    document.getElementById('r_date').setAttribute('min', minDate);
+
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'reserve_modal_open',
@@ -788,12 +942,15 @@ Open 11:00 — 23:00
 
   function closeReserveModal() {
     document.getElementById('reserveModal').style.display = 'none';
+    document.getElementById('confirmDialog').style.display = 'none';
     document.body.style.overflow = '';
     document.getElementById('reserveForm').style.display = 'block';
     document.getElementById('reserveSuccess').style.display = 'none';
-    ['r_name','r_email','r_phone','r_guests','r_time','r_date','r_message'].forEach(function(id){
+    ['r_name','r_email','r_phone','r_guests','r_time','r_date','r_message','r_website'].forEach(function(id){
       document.getElementById(id).value = '';
     });
+    document.getElementById('confirm_check_details').checked = false;
+    document.getElementById('confirm_check_policy').checked = false;
     const err = document.getElementById('r_error');
     err.style.display = 'none';
     err.textContent = '';
@@ -802,7 +959,82 @@ Open 11:00 — 23:00
     btn.disabled = false;
   }
 
-  async function submitReservation() {
+  // ============ 確認ダイアログを開く（必須チェック + bot対策後） ============
+  function openConfirmDialog() {
+    var name    = document.getElementById('r_name').value.trim();
+    var email   = document.getElementById('r_email').value.trim();
+    var phone   = document.getElementById('r_phone').value.trim();
+    var guests  = document.getElementById('r_guests').value;
+    var time    = document.getElementById('r_time').value;
+    var date    = document.getElementById('r_date').value;
+    var website = document.getElementById('r_website').value.trim();
+    var errEl   = document.getElementById('r_error');
+
+    // ===== Bot対策 1: Honeypotフィールド =====
+    if (website !== '') {
+      document.getElementById('reserveForm').style.display = 'none';
+      document.getElementById('reserveSuccess').style.display = 'block';
+      return;
+    }
+
+    // ===== Bot対策 2: 送信時間チェック =====
+    var openedAt = window._reserveModalOpenedAt || 0;
+    var elapsed = Date.now() - openedAt;
+    if (elapsed < 3000) {
+      document.getElementById('reserveForm').style.display = 'none';
+      document.getElementById('reserveSuccess').style.display = 'block';
+      return;
+    }
+
+    // ===== 必須チェック =====
+    if (!name || !email || !phone || !guests || !time || !date) {
+      errEl.textContent = '* 必須項目を入力してください / Please fill in required fields.';
+      errEl.style.display = 'block';
+      return;
+    }
+    errEl.style.display = 'none';
+
+    // ===== 確認ダイアログに予約内容を表示 =====
+    // 日付を「2026年4月23日 (Thu)」のような読みやすい形式にフォーマット
+    var dateObj = new Date(date);
+    var weekdays = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    var formattedDate = dateObj.getFullYear() + '/' +
+                        String(dateObj.getMonth()+1).padStart(2,'0') + '/' +
+                        String(dateObj.getDate()).padStart(2,'0') +
+                        ' (' + weekdays[dateObj.getDay()] + ')';
+
+    document.getElementById('confirm_date').textContent = formattedDate;
+    document.getElementById('confirm_time').textContent = time;
+    document.getElementById('confirm_guests').textContent = guests + (guests === '1' ? ' guest' : ' guests');
+
+    // チェックボックスリセット
+    document.getElementById('confirm_check_details').checked = false;
+    document.getElementById('confirm_check_policy').checked = false;
+    document.getElementById('confirm_error').style.display = 'none';
+
+    document.getElementById('confirmDialog').style.display = 'block';
+  }
+
+  function closeConfirmDialog() {
+    document.getElementById('confirmDialog').style.display = 'none';
+  }
+
+  // ============ 確認後に送信 ============
+  async function confirmAndSubmit() {
+    var checkDetails = document.getElementById('confirm_check_details').checked;
+    var checkPolicy  = document.getElementById('confirm_check_policy').checked;
+    var errEl = document.getElementById('confirm_error');
+
+    if (!checkDetails || !checkPolicy) {
+      errEl.style.display = 'block';
+      return;
+    }
+    errEl.style.display = 'none';
+
+    var btn = document.getElementById('confirm_submit_btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
     var name    = document.getElementById('r_name').value.trim();
     var email   = document.getElementById('r_email').value.trim();
     var phone   = document.getElementById('r_phone').value.trim();
@@ -810,20 +1042,10 @@ Open 11:00 — 23:00
     var time    = document.getElementById('r_time').value;
     var date    = document.getElementById('r_date').value;
     var message = document.getElementById('r_message').value.trim();
-    var errEl   = document.getElementById('r_error');
 
-    if (!name || !email || !guests || !time || !date) {
-      errEl.textContent = '* 必須項目を入力してください / Please fill in required fields.';
-      errEl.style.display = 'block';
-      return;
-    }
-    errEl.style.display = 'none';
-
-    var btn = document.getElementById('r_submit');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-
+    // ===== 流入元URLパスを取得 =====
     var source = window.location.pathname;
+
     var params = { name, email, phone, guests, time, date, message, source_path: source };
 
     try {
@@ -838,12 +1060,14 @@ Open 11:00 — 23:00
         source_path: source
       });
 
+      // 確認ダイアログを閉じて成功画面を表示
+      document.getElementById('confirmDialog').style.display = 'none';
       document.getElementById('reserveForm').style.display = 'none';
       document.getElementById('reserveSuccess').style.display = 'block';
     } catch (err) {
       errEl.textContent = 'エラーが発生しました。再度お試しください。/ An error occurred. Please try again.';
       errEl.style.display = 'block';
-      btn.textContent = 'SEND REQUEST / 送信する';
+      btn.innerHTML = 'この内容で送信<br/><span style="font-size:9px;opacity:0.75;">CONFIRM &amp; SEND</span>';
       btn.disabled = false;
     }
   }
@@ -853,6 +1077,13 @@ Open 11:00 — 23:00
     if (m) {
       m.addEventListener('click', function(e) {
         if (e.target === this) closeReserveModal();
+      });
+    }
+    // 確認ダイアログの背景クリックで閉じる
+    var cd = document.getElementById('confirmDialog');
+    if (cd) {
+      cd.addEventListener('click', function(e) {
+        if (e.target === this) closeConfirmDialog();
       });
     }
     const obs = new IntersectionObserver((entries) => {
